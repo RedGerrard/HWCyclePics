@@ -1,0 +1,6 @@
+framework module Pods_HWCyclePics_Example {
+  umbrella header "Pods-HWCyclePics_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
