@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HWCyclePics_Example' do
+  pod 'HWCyclePics', :path => '../'
+
+  target 'HWCyclePics_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
