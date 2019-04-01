@@ -1,4 +1,4 @@
- <p align="center" title="HWCyclePics"> 轻量级的无限轮播图</p>
+ <p align="center" font-size=36px> HWCyclePics</p>轻量级的无限轮播图
  
  ## How To Use
  * 代码加载
