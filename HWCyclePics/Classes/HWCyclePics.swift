@@ -9,35 +9,35 @@
 import UIKit
 import SDWebImage
 
-typealias BannerClick = (Int)->()
+public typealias BannerClick = (Int)->()
 
 /// PageControl的位置：默认在中间
-enum PageControlPosition {
+public enum PageControlPosition {
     case left
     case center
     case right
 }
 
-class HWCyclePics: UIView {
+public class HWCyclePics: UIView {
 
-    fileprivate var scrollView: UIScrollView!
+    var scrollView: UIScrollView!
     
-    fileprivate var pageControl: UIPageControl!
+    var pageControl: UIPageControl!
     
     /// 轮播图的方向,默认水平方向
-    var isDirectionPortrait: Bool = false
+    public var isDirectionPortrait: Bool = false
     
     /// banner的循环间隔:默认5秒
-    var kInterval: Double = 5.0
+    public var kInterval: Double = 5.0
     
     /// 占位图，默认空
-    var placeholder_image: UIImage?
+    public var placeholder_image: UIImage?
     
     /// 小圆点的位置：默认在中间
-    var pageControlPosition: PageControlPosition = PageControlPosition.center
+    public var pageControlPosition: PageControlPosition = PageControlPosition.center
     
     /// 数据源数组，保存图片的名字或者url字符串
-    var bannerList: [String]?{
+    public var bannerList: [String]?{
         didSet{
             
             self.layoutIfNeeded()
@@ -52,7 +52,7 @@ class HWCyclePics: UIView {
     
     /// 自动轮播定时器
     
-    fileprivate lazy var timer: DispatchSourceTimer = {
+    lazy var timer: DispatchSourceTimer = {
         let aTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
         
         let deadline = DispatchTime.now() + kInterval
@@ -70,21 +70,21 @@ class HWCyclePics: UIView {
     }()
     
     /// 图片的点击事件
-    var block: BannerClick?
+    public var block: BannerClick?
     
     /// pageControl小圆点默认颜色
-    var pageControlIndicatorColor = UIColor.white
+    public var pageControlIndicatorColor = UIColor.white
     /// pageControl小圆点当前颜色
-    var pageControlCurrentColor = UIColor.red
+    public var pageControlCurrentColor = UIColor.red
     
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.setupUI()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         
@@ -92,7 +92,7 @@ class HWCyclePics: UIView {
         
     }
     
-    override func layoutSubviews() {
+     public override func layoutSubviews() {
         super.layoutSubviews()
         
         scrollView.frame = self.bounds
@@ -130,7 +130,7 @@ class HWCyclePics: UIView {
     
 }
 extension HWCyclePics{
-    fileprivate func setupUI(){
+    func setupUI(){
         
         scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -163,7 +163,7 @@ extension HWCyclePics{
             imgClick((tap.view?.tag)!)
         }
     }
-    fileprivate func updateImgView(){
+    func updateImgView(){
         for i in 0...(scrollView.subviews.count - 1) {
             let imageView = scrollView.subviews[i] as! UIImageView
             var index = pageControl.currentPage
@@ -209,14 +209,14 @@ extension HWCyclePics{
         }
     }
     
-    fileprivate func startTimer() {
+    func startTimer() {
         timer.resume()
     }
-    fileprivate func stopTimer() {
+    func stopTimer() {
         timer.suspend()
     }
     
-    fileprivate func nextStep(){
+    func nextStep(){
         
         if isDirectionPortrait == true {
             scrollView.setContentOffset(CGPoint(x: 0, y: 2 * self.bounds.size.height), animated: true)
@@ -226,7 +226,7 @@ extension HWCyclePics{
         }
     }
     
-    fileprivate func verifyURL(url: String) -> Bool{
+    func verifyURL(url: String) -> Bool{
         
         let pattern = "((http|ftp|https)://)(([a-zA-Z0-9\\._-]+\\.[a-zA-Z]{2,6})|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\\&%_\\./-~-]*)?"
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
@@ -236,7 +236,7 @@ extension HWCyclePics{
 }
 // MARK: - UIScrollViewDelegate
 extension HWCyclePics: UIScrollViewDelegate{
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         var page = 0
         var minDistance = CGFloat(MAXFLOAT)
@@ -256,22 +256,22 @@ extension HWCyclePics: UIScrollViewDelegate{
         pageControl.currentPage = page
     }
     
-    internal func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         self.stopTimer()
     }
     
-    internal func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         self.startTimer()
     }
     
-    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         self.updateImgView()
     }
     
-    internal func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         
         self.updateImgView()
     }

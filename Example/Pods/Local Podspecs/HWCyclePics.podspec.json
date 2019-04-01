@@ -2,6 +2,7 @@
   "name": "HWCyclePics",
   "version": "0.1.0",
   "summary": "无限轮播图",
+  "swift_version": "4.0",
   "description": "简洁易懂功能全面的无限轮播图",
   "homepage": "https://github.com/RedGerrard/HWCyclePics",
   "license": {
