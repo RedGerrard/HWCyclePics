@@ -1,4 +1,4 @@
- <h1> HWCyclePics</h1>轻量级的无限轮播图
+ <h1 align="center"> HWCyclePics</h1>轻量级的无限轮播图
  
  ## How To Use
  * 代码加载
