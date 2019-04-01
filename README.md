@@ -1,9 +1,6 @@
- <p align="center">
- HWCyclePics
- </p>
- 轻量级的无限轮播图
- ## How To Use
+ <p align="center" title="HWCyclePics"> 轻量级的无限轮播图</p>
  
+ ## How To Use
  * 代码加载
  ```
  import HWCyclePics
@@ -33,7 +30,6 @@
  print(tag)
  }
  ```
- ## Requirements
  
  ## Installation
  
