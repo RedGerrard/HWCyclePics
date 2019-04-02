@@ -41,8 +41,7 @@
  ```
  
  ## Author
- 本人小菜鸟一枚，欢迎各位同仁和大神指教，我的联系方式是：
- RedGerrard, 417705652@qq.com
+ 本人小菜鸟一枚，欢迎各位同仁和大神指教，我的简书是：https://www.jianshu.com/u/cdd48b9d36e0，我的邮箱地址是：417705652@qq.com
  
  ## Licenses
  
