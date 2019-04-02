@@ -42,9 +42,10 @@
  
  ## Author
  本人小菜鸟一枚，欢迎各位同仁和大神指教
- 我的简书是：https://www.jianshu.com/u/cdd48b9d36e0
- 我的邮箱地址是：417705652@qq.com
+ <br>我的简书是：https://www.jianshu.com/u/cdd48b9d36e0
+ <br>我的邮箱地址是：417705652@qq.com
  
  ## Licenses
  
  All source code is licensed under the [MIT License](https://raw.github.com/SDWebImage/SDWebImage/master/LICENSE).
+
