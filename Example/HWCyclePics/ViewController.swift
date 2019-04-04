@@ -16,8 +16,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        banner.bannerList = ["abc","def","ghi","ojk"]
-        banner.bannerList = ["http://images.drztc.com/upload/banner/2019/03/21/2a86d6f9d8e43888fe13a90d5d4deedc.jpg","http://images.drztc.com/upload/banner/2019/03/25/e01ba649170f70b833af37708aaf8b53.jpg","http://images.drztc.com/upload/banner/2018/11/07/c3be84a6f19d56934a773c5225ddaac2.jpg","http://images.drztc.com/upload/banner/2018/05/23/58de5f57f239588284c42931dc53e93f.jpg"]
+        banner.bannerList = ["pic0","pic1","pic2","pic3"]
+//        banner.bannerList = ["http://images.drztc.com/upload/banner/2019/03/21/2a86d6f9d8e43888fe13a90d5d4deedc.jpg","http://images.drztc.com/upload/banner/2019/03/25/e01ba649170f70b833af37708aaf8b53.jpg","http://images.drztc.com/upload/banner/2018/11/07/c3be84a6f19d56934a773c5225ddaac2.jpg","http://images.drztc.com/upload/banner/2018/05/23/58de5f57f239588284c42931dc53e93f.jpg"]
+        
+        banner.loadBlock = {
+            (imageView: UIImageView, source: String) -> Void in
+            imageView.image = UIImage.init(named: source)
+        }
+        
         banner.block = {
             (tag: Int) -> Void in
             print(tag)

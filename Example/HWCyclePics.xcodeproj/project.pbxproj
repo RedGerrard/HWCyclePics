@@ -269,12 +269,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HWCyclePics_Example/Pods-HWCyclePics_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/HWCyclePics/HWCyclePics.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HWCyclePics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

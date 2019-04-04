@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HWCyclePics'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '无限轮播图'
   s.swift_version    = '4.0'
 
@@ -37,5 +37,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SDWebImage'
+  # s.dependency 'SDWebImage'
 end

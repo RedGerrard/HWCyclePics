@@ -1,4 +1,4 @@
- <h1 align="center"> HWCyclePics</h1>轻量级的无限轮播图
+ <h1 align="center"> HWCyclePics</h1>轻量级的无限轮播图（HWBanner的swift版）
  
  ## How To Use
  * 代码加载
@@ -6,13 +6,19 @@
  import HWCyclePics
  ...
  let banner = HWCyclePics.init(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 180))
- //设置图片数据源，本地或者接口返回，本地时为图片的名字，接口返回时为图片的下载地址
- //banner.bannerList = ["abc","def","ghi","ojk"]
+ //设置图片数据源(图片的名字或者下载地址)
+ //banner.bannerList = ["pic0","pic1","pic2","pic3"]
  banner.bannerList = ["http://images.drztc.com/upload/banner/2019/03/21/2a86d6f9d8e43888fe13a90d5d4deedc.jpg","http://images.drztc.com/upload/banner/2019/03/25/e01ba649170f70b833af37708aaf8b53.jpg","http://images.drztc.com/upload/banner/2018/11/07/c3be84a6f19d56934a773c5225ddaac2.jpg","http://images.drztc.com/upload/banner/2018/05/23/58de5f57f239588284c42931dc53e93f.jpg"]
- //设置点击事件
+ //设置图片的加载事件
+ banner.loadBlock = {
+    (imageView: UIImageView, source: String) -> Void in
+    imageView.image = UIImage.init(named: source)
+    //也可用SDWebImage加载网络图片
+ }
+ //设置图片的点击事件
  banner.block = {
- (tag: Int) -> Void in
- print(tag)
+    (tag: Int) -> Void in
+    print(tag)
  }
  self.view.addSubview(banner)
  ```
@@ -23,11 +29,17 @@
  @IBOutlet weak var banner: HWCyclePics!
  ...
  //设置图片数据源
- banner.bannerList = ["abc","def","ghi","ojk"]
+ banner.bannerList = ["pic0","pic1","pic2","pic3"]
+ //设置图片的加载事件
+ banner.loadBlock = {
+    (imageView: UIImageView, source: String) -> Void in
+    imageView.image = UIImage.init(named: source)
+    //也可用SDWebImage加载网络图片
+ }
  //设置点击事件
  banner.block = {
- (tag: Int) -> Void in
- print(tag)
+    (tag: Int) -> Void in
+    print(tag)
  }
  ```
  

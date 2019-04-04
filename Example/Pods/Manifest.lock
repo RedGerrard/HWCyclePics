@@ -1,24 +1,15 @@
 PODS:
-  - HWCyclePics (0.1.0):
-    - SDWebImage
-  - SDWebImage (4.4.6):
-    - SDWebImage/Core (= 4.4.6)
-  - SDWebImage/Core (4.4.6)
+  - HWCyclePics (0.1.1)
 
 DEPENDENCIES:
   - HWCyclePics (from `../`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - SDWebImage
 
 EXTERNAL SOURCES:
   HWCyclePics:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HWCyclePics: c9932c01e31080b95676f3640b762c10f30bd89c
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  HWCyclePics: 543fa9afb8f475bbf8f36dfc63374e81560b5ef7
 
 PODFILE CHECKSUM: 4adede61e6ff10c2cae7e85e0f5aa650938219d2
 

@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import SDWebImage
 
 public typealias BannerClick = (Int)->()
+public typealias LoadImageBlock = (UIImageView, String)->()
+
 
 /// PageControl的位置：默认在中间
 public enum PageControlPosition {
@@ -29,9 +30,6 @@ public class HWCyclePics: UIView {
     
     /// banner的循环间隔:默认5秒
     public var kInterval: Double = 5.0
-    
-    /// 占位图，默认空
-    public var placeholder_image: UIImage?
     
     /// 小圆点的位置：默认在中间
     public var pageControlPosition: PageControlPosition = PageControlPosition.center
@@ -68,6 +66,9 @@ public class HWCyclePics: UIView {
         aTimer.resume()
         return aTimer
     }()
+    
+    /// 图片的加载事件
+    public var loadBlock: LoadImageBlock?
     
     /// 图片的点击事件
     public var block: BannerClick?
@@ -186,17 +187,10 @@ extension HWCyclePics{
             imageView.tag = index
             
             let imgName = arr[index]
-            if (verifyURL(url: imgName)){
-                
-                if let url = URL.init(string: imgName){
-                    
-                    imageView.sd_setImage(with: url, placeholderImage: placeholder_image, options: .retryFailed, completed: nil)
-                }
-                
-            }else{
-                imageView.image = UIImage.init(named: imgName)
-            }
             
+            if let loadImg = loadBlock {
+                loadImg(imageView, imgName)
+            }
             
         }
         
